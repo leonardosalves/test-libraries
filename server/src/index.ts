@@ -1,26 +1,43 @@
-import { AppDataSource } from "./data-source"
 import * as express from "express"
-import { Users } from "./entity/Users"
-import { Congregacoes } from './entity/Congregacoes';
+import * as bodyParser from "body-parser"
+import { Request, Response } from "express"
+import { AppDataSource } from "./data-source"
+import { Routes } from "./routes"
 
-import routes from './routes';
+AppDataSource.initialize().then(async () => {
 
-// create and setup express app
-const app = express()
-app.use(express.json())
+    // create express app
+    const app = express()
+    app.use(bodyParser.json())
 
-const port = '3088'
+    app.all('/*', function(req, res, next) {
+        res.header('Access-Control-Allow-Origin', '*');
+        res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+        res.header('Access-Control-Allow-Headers', 'Content-Type');
+      
+        next();
+      });
+      
+    // register express routes from defined application routes
+    Routes.forEach(route => {
+        (app as any)[route.method](route.route, (req: Request, res: Response, next: Function) => {
+            const result = (new (route.controller as any)())[route.action](req, res, next)
+            if (result instanceof Promise) {
+                result.then(result => result !== null && result !== undefined ? res.send(result) : undefined)
 
-AppDataSource.initialize()
-.then(() => {
-    console.log("Data Source has been initialized!")
-    app.use(routes)
-})
-.catch((err) => {
-    console.error("Error during Data Source initialization:", err)
-})
+            } else if (result !== null && result !== undefined) {
+                res.json(result)
+            }
+        })
+    })
 
-// start express server
-app.listen(port, ()=>{
-console.log('Escutando na porta '+port)
-})
+    // setup express app here
+    // ...
+
+    // start express server
+    app.listen(3003)
+
+
+    console.log("Express server has started on port 3003. Open http://localhost:3003/paises to see results")
+
+}).catch(error => console.log(error))

@@ -1,127 +1,128 @@
-import { Entity, PrimaryColumn, Column } from "typeorm";
+import { Entity, PrimaryColumn, Column } from 'typeorm';
 
 @Entity()
 export class Congregacoes{
     @PrimaryColumn()
-    id_congregacoes: number
+    id_congregacoes : number 
 
     @Column()
-    id_areas: number
+    id_areas : number
 
     @Column()
-    congregacao: string
+    congregacao : string
 
     @Column()
-    ativo: string
-
-    @Column()
-    sede_area: string
-
-    @Column()
-    id_pessoas_encarregado: number
-
-    @Column()
-    id_pessoas_secretario: number
-
-    @Column()
-    id_pessoas_tesoureiro: number
-
-    @Column()
-    id_pessoas_juventude: number
-
-    @Column()
-    id_pessoas_uniao_feminina: number
-
-    @Column()
-    id_pessoas_missoes: number
+    ativo : string
     
     @Column()
-    id_pessoas_diacono: number
+    sede_area : string
 
     @Column()
-    id_pessoas_diaconisa: number
+    id_pessoas_encarregado : number
 
     @Column()
-    id_pessoas_presidio: number
+    id_pessoas_secretario : number
 
     @Column()
-    id_pessoas_ensino: number
+    id_pessoas_tesoureiro : number
 
     @Column()
-    id_pessoas_musica: number
+    id_pessoas_juventude : number
+    
+    @Column()
+    id_pessoas_uniao_feminina : number
 
     @Column()
-    endereco_pais: string
+    id_pessoas_missoes : number
 
     @Column()
-    endereco_cep: string
+    id_pessoas_diacono : number
 
     @Column()
-    endereco_bairro: string
+    id_pessoas_diaconisa : number
 
     @Column()
-    endereco_cidade: string
+    id_pessoas_presidio : number
 
     @Column()
-    endereco_estado: string
+    id_pessoas_ensino : number
 
     @Column()
-    endereco_logradouro: string
+    id_pessoas_musica : number
 
     @Column()
-    endereco_numero: string
+    endereco_pais : string
 
     @Column()
-    endereco_complemento: string
+    endereco_cep : string
 
     @Column()
-    endereco_latitude: string
+    endereco_bairro : string
 
     @Column()
-    endereco_logitude: string
+    endereco_cidade : string
 
     @Column()
-    url_site: string
+    endereco_estado : string
 
     @Column()
-    foto_fachada: string
+    endereco_logradouro : string
 
     @Column()
-    foto_interna: string
+    endereco_numero : string
 
     @Column()
-    data_fundacao: Date
+    endereco_complemento : string
 
     @Column()
-    data_encerramento: Date
+    endereco_latitude : string
 
     @Column()
-    data_transferencia: Date
+    endereco_longitude : string
 
     @Column()
-    nome_encarregado: string
+    url_site : string
 
     @Column()
-    contato: string
+    foto_fachada : string
 
     @Column()
-    datahora_atualizacao: Date
+    foto_interna : string
 
     @Column()
-    datahora_cadastro: Date
+    data_fundacao : Date
 
     @Column()
-    observacoes: string
+    data_encerramento : Date
 
     @Column()
-    id_congregacao_church: number
+    data_transferencia : Date
 
     @Column()
-    id_congregacoes_anterior: number
+    nome_encarregado : string
 
     @Column()
-    id_congregacoes_posteriror: number
+    contato : string
 
     @Column()
-    publica_site: string
+    datahora_atualizacao : Date
+
+    @Column()
+    datahora_cadastro : Date
+
+    @Column()
+    observacoes : string
+
+    @Column()
+    id_congregacao_church : number
+
+    @Column()
+    id_congregacoes_anterior : number
+
+    @Column()
+    id_congregacoes_posterior : number
+
+    @Column()
+    publica_site : number
 }
+

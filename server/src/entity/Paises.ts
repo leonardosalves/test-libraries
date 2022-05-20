@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Entity, PrimaryColumn, Column } from "typeorm"
 
 @Entity()
 export class Paises {
@@ -16,6 +16,14 @@ export class Paises {
     nome: string
 
     @Column()
-    iso_correios: string
+    nome_en: string
 
+    @Column()
+    nome_fr: string
+    
+    @Column()
+    nome_es: string
+    
+    @Column()
+    iso_correios: string
 }
