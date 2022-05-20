@@ -1,9 +1,9 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
+import { Entity, PrimaryColumn, Column } from "typeorm"
 
 @Entity()
 export class Users {
 
-    @PrimaryGeneratedColumn()
+    @PrimaryColumn()
     id_users: number
 
     @Column()
@@ -13,23 +13,23 @@ export class Users {
     name: string
 
     @Column()
-    email: number
+    email: string
 
     @Column()
     login: string
     
     @Column()
     pass: string
-
+    
     @Column()
     blocked: string
 
     @Column()
     permissions: string
-
+    
     @Column()
     last_access: Date
-
+    
     @Column()
     last_ip: string
     
@@ -38,14 +38,13 @@ export class Users {
     
     @Column()
     change_pass: string
-
+    
     @Column()
     financeiro_meta_mensal: number
 
     @Column()
     financeiro_meta_diaria: number
-
+    
     @Column()
-    financeiro_numero_dias: number
-
+    financeiro_meta_numero_dias: number
 }

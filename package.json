@@ -6,6 +6,7 @@
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@mui/base": "^5.0.0-alpha.81",
+    "@mui/icons-material": "^5.8.0",
     "@mui/material": "^5.8.0",
     "@mui/styled-engine-sc": "^5.8.0",
     "@mui/system": "^5.8.0",
@@ -17,13 +18,16 @@
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "@types/react-swipeable-views": "^0.13.1",
     "fake": "^0.2.2",
     "react": "^18.1.0",
+    "react-bootstrap": "^2.4.0",
     "react-dom": "^18.1.0",
     "react-icons": "^4.3.1",
     "react-pro-sidebar": "^0.7.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-swipeable-views": "^0.14.0",
     "recharts": "^2.1.9",
     "styled-components": "^5.3.5",
     "typescript": "^4.4.2",
@@ -52,5 +56,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm",
+  "migration:generate": "npm run typeorm -- migration:generate --config src/config/ormconfig.json --connection  --name ",
+  "migration:run": "npm run typeorm -- migration:run"
 }
