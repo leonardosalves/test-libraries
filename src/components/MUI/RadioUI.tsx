@@ -1,13 +1,26 @@
 import React from "react";
 import { styled } from "@stitches/react";
-import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TableBody } from "@mui/material";
+import { styled as styledUI, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TableBody, Divider, Chip } from "@mui/material";
 
+const Root = styledUI('div')(({ theme })=>({
+    ...theme.typography.body2,
+    '& > :not(style) + :not(style)' : {
+        marginTop: theme.spacing(2)
+    },
+    width: "calc(var(--vw, 1vw) * 75)",
+    paddingTop: '1rem',
+    paddingBottom: '1rem',
+
+}))
 
 const RadioUI = () =>{
     const [selectedValue, setSelectedValue] = React.useState('a');
 
     const DivRadio = styled('div', {
-        width: '100%'
+        paddingTop: '1rem',
+        paddingBottom: '1rem',
+        width: '100%',
+        alignItems: "start"
     })
 
     const handleChangeRadio = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,7 +36,11 @@ const RadioUI = () =>{
     });
     return(
         <DivRadio>
-            <h1>Radio</h1>
+            <Root>
+                <Divider>
+                    <Chip label="Radio - Normal" color="primary"></Chip>
+                </Divider>
+            </Root>
             <TableBody key="Botoes" sx={{ '& button': { m: 1 } }}>
                 <FormControl>
                     <FormLabel id="demo-radio-buttons-group-label">Sexo</FormLabel>
@@ -36,6 +53,11 @@ const RadioUI = () =>{
                         <FormControlLabel value="macho" control={<Radio />} label="Macho" />
                     </RadioGroup>
                 </FormControl>
+                <Root>
+                    <Divider>
+                        <Chip label="Radio - Colorido" color="primary"></Chip>
+                    </Divider>
+                </Root>
                 <Radio {...controlProps('a')} />
                     <Radio {...controlProps('b')} color="secondary" />
                     <Radio {...controlProps('c')} color="success" />

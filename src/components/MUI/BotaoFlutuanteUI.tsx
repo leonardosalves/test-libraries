@@ -1,13 +1,23 @@
 import React from "react";
-import {AppBar, Fab, Tab, TableBody, Tabs, Typography, Zoom } from '@mui/material'
+import {AppBar,Chip, Divider, Fab, Tab, TableBody, Tabs, Typography, Zoom } from '@mui/material'
 import { styled } from "@stitches/react"; 
 import { FaArrowUp, FaEdit, FaFacebook, FaPlus } from "react-icons/fa";
 import { Dangerous } from "@mui/icons-material";
 import SwipeableViews from "react-swipeable-views";
 import { Box, SxProps } from "@mui/system";
 import { useTheme } from '@mui/material/styles';
+import { styled as styledUI } from '@mui/material/styles';
 
 
+const Root = styledUI('div')(({ theme })=>({
+  ...theme.typography.body2,
+  '& > :not(style) + :not(style)' : {
+      marginTop: theme.spacing(2)
+  },
+  width: "calc(var(--vw, 1vw) * 75)",
+  paddingTop: '1rem',
+  paddingBottom: '1rem'
+}))
 interface TabPanelProps {
     children?: React.ReactNode;
     dir?: string;
@@ -58,7 +68,9 @@ const BotaoFlutuanteUI = () =>{
     const [value, setValue] = React.useState(0);
     
     const DivBotaoFlutuante = styled('div', {
-        width: '100%'
+      paddingTop: '10px',
+      width: '100%',
+      alignItems: "start"
     })
     const handleChange = (event: unknown, newValue: number) => {
         setValue(newValue);
@@ -96,8 +108,12 @@ const BotaoFlutuanteUI = () =>{
   ];
     return(
         <DivBotaoFlutuante>
+          <Root>
+            <Divider>
+              <Chip label="Botão Flutuante - Normal" color="primary"></Chip>
+            </Divider>
+          </Root>
             <TableBody key="Botoes" sx={{ '& button': { m: 1 } }}>
-                <h1>Botão Flutuante</h1>
                 <Fab color="primary" aria-label="add">
                     <FaPlus />
                     </Fab>
@@ -111,9 +127,13 @@ const BotaoFlutuanteUI = () =>{
                     <Fab disabled aria-label="like">
                         <FaFacebook />
                 </Fab>
-
-                <br/>
-                <br/>
+                
+        
+                <Root>
+                  <Divider>
+                    <Chip label="Botão Flutuante - Efeitos" color="primary"></Chip>
+                  </Divider>
+                </Root>
                 <Box
                     sx={{
                         bgcolor: 'background.paper',
@@ -168,7 +188,6 @@ const BotaoFlutuanteUI = () =>{
                     ))}
                 </Box>
             </TableBody>
-            
         </DivBotaoFlutuante>
     )
 }

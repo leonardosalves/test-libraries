@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { 
-    FaAutoprefixer,
     FaBook, 
     FaChartLine, 
-    FaHome, 
-    FaJira, 
+    FaHome,  
     FaUikit} from "react-icons/fa";
-import { FiBluetooth, FiCheck, FiFigma, FiLogOut } from "react-icons/fi";
+import { BiSliderAlt, BiCheckboxChecked } from "react-icons/bi"
+import { CgSelect } from "react-icons/cg"
+import { SiMaterialui } from "react-icons/si"
+import { BsUiRadiosGrid, BsMenuButtonFill } from "react-icons/bs"
+import { MdOutlineGeneratingTokens, MdOutlineSmartButton, MdAutofpsSelect } from "react-icons/md"
+import { FiLogOut } from "react-icons/fi";
 import { 
     Menu, 
     MenuItem, 
@@ -47,12 +50,19 @@ const Sidebar = () =>{
                 <Menu iconShape='circle'>
                     <MenuItem icon={<FaHome/>}><Link to="/"/>Início</MenuItem>
                         <SubMenu title="Livrarias"  icon={<FaBook/>}>
-                                <SubMenu title="MaterialUI" icon={<FaUikit/>}><Link to="/material-ui" />
-                                    <MenuItem icon={<FaAutoprefixer/>}><Link to="/material-ui/autocomplete" />Autocomplete</MenuItem>
-                                    <MenuItem icon={<FiBluetooth/>}><Link to="/material-ui/button" />Button</MenuItem>
-                                    <MenuItem icon={<FiCheck/>}><Link to="/material-ui/checkbox" />Checkbox</MenuItem>
-                                    <MenuItem icon={<FiFigma/>}><Link to="/material-ui/botao-flutuante" />Botão Flutuante</MenuItem>
-                                    <MenuItem icon={<FaJira/>}><Link to="/material-ui/radio" />Radio</MenuItem>
+                                <SubMenu title="MaterialUI" icon={<SiMaterialui/>}><Link to="/#" />
+                                    <MenuItem icon={<MdAutofpsSelect/>}><Link to="/material-ui/autocomplete" />Autocomplete</MenuItem>
+                                    <MenuItem icon={<MdOutlineSmartButton/>}><Link to="/material-ui/button" />Button</MenuItem>
+                                    <MenuItem icon={<BiCheckboxChecked/>}><Link to="/material-ui/checkbox" />Checkbox</MenuItem>
+                                    <MenuItem icon={<BsMenuButtonFill/>}><Link to="/material-ui/botao-flutuante" />Botão Flutuante</MenuItem>
+                                    <MenuItem icon={<BsUiRadiosGrid/>}><Link to="/material-ui/radio" />Radio</MenuItem>
+                                    <MenuItem icon={<MdOutlineGeneratingTokens/>}><Link to="/material-ui/rating" />Rating (Avaliação)</MenuItem>
+                                    <MenuItem icon={<CgSelect/>}><Link to="/material-ui/select" />Select</MenuItem>
+                                    <MenuItem icon={<BiSliderAlt/>}><Link to="/material-ui/slider" />Slider</MenuItem>
+                                    <SubMenu title="Sliders Custons" icon={<BiSliderAlt/>}><Link to="/sliders/#" />
+                                        <MenuItem icon={<BiSliderAlt/>}><Link to="/material-ui/slider/custons-phone" />Slider - Custom - Phone</MenuItem>
+                                        <MenuItem icon={<BiSliderAlt/>}><Link to="/material-ui/slider/custons-music-player" />Slider - Custom - Music Player</MenuItem>
+                                    </SubMenu>
                                 </SubMenu>
                             <MenuItem icon={<FaChartLine/>}><Link to="/ri-chart" />RiChart</MenuItem>
                         </SubMenu>

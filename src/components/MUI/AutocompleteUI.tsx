@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { styled } from "@stitches/react";
-import { Autocomplete, TextField } from "@mui/material";
+import { styled as styledUI } from "@mui/material/styles";
+import { Autocomplete, Chip, Divider, TextField } from "@mui/material";
 import { Box } from "@mui/system";
+
+const Root = styledUI('div')(({ theme })=>({
+    ...theme.typography.body2,
+    '& > :not(style) + :not(style)' : {
+        marginTop: theme.spacing(2)
+    },
+    width: "calc(var(--vw, 1vw) * 75)"
+}))
 
 const AutocompleteUI = () =>{
     const [paises, setPaises] = useState([])
@@ -24,22 +33,26 @@ const AutocompleteUI = () =>{
     }, [])
 
     const DivAutocomplete = styled('div', {
-        width: '100%',
-        padding: '1rem'
+        paddingTop: '10px',
+        width: '100%'
     })
 
     return(
         <DivAutocomplete>
-            <Box sx={{ '& button': { m: 1 } }}>
-                <h1>Autocomplete</h1>
-                <Autocomplete
-                    disablePortal
-                    id="combo-box-demo"
-                    options={paises}
-                    sx={{ width: 300 }}
-                    renderInput={(params)=><TextField {...params} label="Paises"/>}
-                />
-            </Box>
+            <Root>
+                <Divider>
+                    <Chip color="primary" label="Autocomplete (Dados API)"></Chip>
+                </Divider>
+                <Box sx={{ '& button': { m: 1 } }}>
+                    <Autocomplete
+                        disablePortal
+                        id="combo-box-demo"
+                        options={paises}
+                        sx={{ width: 300 }}
+                        renderInput={(params)=><TextField {...params} label="Paises"/>}
+                    />
+                </Box>
+            </Root>
         </DivAutocomplete>
     )
 }

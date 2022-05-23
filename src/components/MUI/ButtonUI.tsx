@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, ButtonBase, ButtonGroup, IconButton, Stack, TableBody, Typography } from "@mui/material";
+import { Button, ButtonBase, ButtonGroup, Chip, Divider, IconButton, Stack, TableBody, Typography } from "@mui/material";
 import { styled } from "@stitches/react";
 import { styled as styleMU, useTheme} from '@mui/material/styles';
 import { FaCamera } from "react-icons/fa";
@@ -12,6 +12,15 @@ const Input = styleMU('input')({
     display: 'none',
 });
 
+const Root = styleMU('div')(({ theme })=>({
+    ...theme.typography.body2,
+    '& > :not(style) + :not(style)' : {
+        marginTop: theme.spacing(2)
+    },
+    width: "calc(var(--vw, 1vw) * 75)",
+    paddingTop: '1rem',
+    paddingBottom: '1rem'
+}))
 
 const ImageButton = styleMU(ButtonBase)(({ theme }) => ({
     position: 'relative',
@@ -83,18 +92,34 @@ const ImageMarked = styleMU('span')(({ theme }) => ({
 const  ButtonUI = () =>{
 
     const DivButtonUI = styled('div',{
+        paddingTop: '1rem',
+        paddingBottom: '1rem',
         width: '100%',
-        padding: '1rem'
+        alignItems: "start"
     }) 
     return(
         <DivButtonUI>
             <TableBody key="Botoes" sx={{ '& button': { m: 1 } }}>
-                <h1>Botões</h1>
+                <Root>
+                    <Divider>
+                        <Chip color="primary" label="Botões - Tipos"></Chip>
+                    </Divider>
+                </Root>
                 <Button variant="outlined" color="error">Erro</Button>
                 <Button variant="contained" color="success">Sucesso</Button>
+                <Root>
+                    <Divider>
+                        <Chip label="Botões - Tamanhos" color="primary"></Chip>
+                    </Divider>
+                </Root>
                 <Button variant="contained" size="small">Pequeno</Button>
                 <Button variant="contained" size="medium">Médio</Button>
                 <Button variant="contained" size="large">Grande</Button>
+                <Root>
+                    <Divider>
+                        <Chip label="Botões - Ícones" color="primary"></Chip>
+                    </Divider>
+                </Root>
                 <label htmlFor="contained-button-file">
                     <Input id="contained-button-file" multiple type="file" />
                     <Button variant="contained" component="span" endIcon={<FaCamera/>}>
@@ -107,12 +132,22 @@ const  ButtonUI = () =>{
                     <FaCamera />
                     </IconButton>
                 </label>
+                <Root>
+                    <Divider>
+                        <Chip label="Botões - Ícones Coloridos" color="primary"></Chip>
+                    </Divider>
+                </Root>
                 <IconButton aria-label="fingerprint" color="secondary">
                     <Fingerprint />
                 </IconButton>
                 <IconButton aria-label="fingerprint" color="success">
                     <Fingerprint />
                 </IconButton>
+                <Root>
+                    <Divider>
+                        <Chip label="Botões - Imagem" color="primary"></Chip>
+                    </Divider>
+                </Root>
                 <ImageButton
                     focusRipple
                     key="prhumberto"
@@ -139,6 +174,11 @@ const  ButtonUI = () =>{
                         </Typography>
                     </Image>
                 </ImageButton>
+                <Root>
+                    <Divider>
+                        <Chip color="primary" label="Botões - Grupo (Ou pelo mesno era para ser..)"></Chip>
+                    </Divider>
+                </Root>
                 <ButtonGroup variant="contained" aria-label="outlined primary button group">
                     <Button>One</Button>
                     <Button>Two</Button>

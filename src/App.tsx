@@ -10,6 +10,11 @@ import ButtonUI from './components/MUI/ButtonUI';
 import CheckBoxUI from './components/MUI/CheckBoxUI';
 import BotaoFlutuanteUI from './components/MUI/BotaoFlutuanteUI';
 import RadioUI from './components/MUI/RadioUI';
+import AvaliacaoUI from './components/MUI/AvaliacaoUI';
+import SelectUI from './components/MUI/SelectUI';
+import SliderUI from './components/MUI/SliderUI';
+import SliderCustonsPhone from './components/MUI/SliderCustons/SliderCustonsPhone';
+import MusicPlayerSlider from './components/MUI/SliderCustons/SliderMusicPlayer';
 
 const App = () =>{
 
@@ -32,6 +37,11 @@ const App = () =>{
               <Route path='/material-ui/checkbox' element={<CheckBoxUI/>} />
               <Route path='/material-ui/botao-flutuante' element={<BotaoFlutuanteUI/>} />
               <Route path='/material-ui/radio' element={<RadioUI/>} />
+              <Route path='/material-ui/rating' element={<AvaliacaoUI/>} />
+              <Route path='/material-ui/select' element={<SelectUI/>} />
+              <Route path='/material-ui/slider' element={<SliderUI/>} />
+              <Route path='/material-ui/slider/custons-phone' element={<SliderCustonsPhone/>} />
+              <Route path='/material-ui/slider/custons-music-player' element={<MusicPlayerSlider/>} />
           </Routes>
         </Router>
     </ContentDiv>
