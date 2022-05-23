@@ -15,6 +15,7 @@ import SelectUI from './components/MUI/SelectUI';
 import SliderUI from './components/MUI/SliderUI';
 import SliderCustonsPhone from './components/MUI/SliderCustons/SliderCustonsPhone';
 import MusicPlayerSlider from './components/MUI/SliderCustons/SliderMusicPlayer';
+import SwitchUI from './components/MUI/SwitchUI';
 
 const App = () =>{
 
@@ -42,6 +43,7 @@ const App = () =>{
               <Route path='/material-ui/slider' element={<SliderUI/>} />
               <Route path='/material-ui/slider/custons-phone' element={<SliderCustonsPhone/>} />
               <Route path='/material-ui/slider/custons-music-player' element={<MusicPlayerSlider/>} />
+              <Route path='/material-ui/switch' element={<SwitchUI/>} />
           </Routes>
         </Router>
     </ContentDiv>

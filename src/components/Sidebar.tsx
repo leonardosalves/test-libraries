@@ -6,6 +6,7 @@ import {
     FaUikit} from "react-icons/fa";
 import { BiSliderAlt, BiCheckboxChecked } from "react-icons/bi"
 import { CgSelect } from "react-icons/cg"
+import { IoIosSwitch } from "react-icons/io"
 import { SiMaterialui } from "react-icons/si"
 import { BsUiRadiosGrid, BsMenuButtonFill } from "react-icons/bs"
 import { MdOutlineGeneratingTokens, MdOutlineSmartButton, MdAutofpsSelect } from "react-icons/md"
@@ -63,6 +64,7 @@ const Sidebar = () =>{
                                         <MenuItem icon={<BiSliderAlt/>}><Link to="/material-ui/slider/custons-phone" />Slider - Custom - Phone</MenuItem>
                                         <MenuItem icon={<BiSliderAlt/>}><Link to="/material-ui/slider/custons-music-player" />Slider - Custom - Music Player</MenuItem>
                                     </SubMenu>
+                                    <MenuItem icon={<IoIosSwitch/>}><Link to="/material-ui/switch" />Switch</MenuItem>
                                 </SubMenu>
                             <MenuItem icon={<FaChartLine/>}><Link to="/ri-chart" />RiChart</MenuItem>
                         </SubMenu>
